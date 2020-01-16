@@ -71,7 +71,7 @@ const MonthTitle = ({ children, single }) => {
 
 const MonthGrid = ({ children }) => {
   return (
-    <Grid gap={0} columns={[7, 7, 7]}>
+    <Grid gap={1} columns={[7, 7, 7]}>
       {children}
     </Grid>
   )
@@ -164,7 +164,7 @@ const MonthView = ({ month, images, single }) => {
   }
 
   return (
-    <Box>
+    <Box mb={4}>
       <MonthTitle single={single}>{monthDate.format("MMMM YYYY")}</MonthTitle>
       <MonthGrid>
         {dayNames.map(dayName => (
