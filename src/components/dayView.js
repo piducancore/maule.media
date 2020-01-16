@@ -29,6 +29,7 @@ const Day = ({ day, images }) => {
 
       {images.map((image, index) => (
         <Image
+          my={2}
           key={image.public_id}
           title={image.image_metadata.CreateDate}
           alt={image.image_metadata.CreateDate}
