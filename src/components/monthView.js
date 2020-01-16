@@ -13,8 +13,8 @@ const MonthTitle = ({ children, single }) => {
   const prevMonthLink = prevMonth.format("/YYYY/MM")
 
   return (
-    <Flex mt={2} mb={2}>
-      {single ? (
+    <Flex>
+      {single && (
         <Box>
           <IconButton
             aria-label="mes anterior"
@@ -37,11 +37,11 @@ const MonthTitle = ({ children, single }) => {
             </svg>
           </IconButton>
         </Box>
-      ) : null}
+      )}
       <Box sx={{ flex: 1, margin: "auto" }}>
         <Heading sx={{ textAlign: "center" }}>{children}</Heading>
       </Box>
-      {single ? (
+      {single && (
         <Box>
           <IconButton
             aria-label="mes siguiente"
@@ -64,14 +64,14 @@ const MonthTitle = ({ children, single }) => {
             </svg>
           </IconButton>
         </Box>
-      ) : null}
+      )}
     </Flex>
   )
 }
 
 const MonthGrid = ({ children }) => {
   return (
-    <Grid gap={1} columns={[7, 7, 7]}>
+    <Grid gap={0} columns={[7, 7, 7]}>
       {children}
     </Grid>
   )
@@ -164,7 +164,7 @@ const MonthView = ({ month, images, single }) => {
   }
 
   return (
-    <Box mt={[4, 4, 5]}>
+    <Box>
       <MonthTitle single={single}>{monthDate.format("MMMM YYYY")}</MonthTitle>
       <MonthGrid>
         {dayNames.map(dayName => (
