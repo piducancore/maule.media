@@ -24,7 +24,7 @@ const Header = ({ siteTitle, isIndex, location }) => {
               sx={{
                 margin: 0,
                 fontFamily: "heading",
-                fontSize: isIndex ? 6 : 4,
+                fontSize: isIndex ? 6 : 3,
                 // textAlign: isCalendar ? "center" : "left",
               }}
             >
@@ -48,7 +48,7 @@ const Header = ({ siteTitle, isIndex, location }) => {
               sx={{
                 margin: 0,
                 fontFamily: "heading",
-                fontSize: isIndex ? 6 : 4,
+                fontSize: 3,
                 textAlign: "right",
               }}
             >
