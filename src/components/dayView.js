@@ -1,20 +1,9 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import moment from "moment"
-import { Box, Heading, Image } from "@theme-ui/components"
-import { navigate } from "gatsby"
+import { Box, Flex, IconButton, Heading, Image } from "@theme-ui/components"
+import { Link } from "gatsby"
 import localization from "moment/locale/es"
-
-const DayTitle = ({ children, onClick }) => (
-  <Heading
-    onClick={onClick}
-    sx={{
-      textAlign: "center",
-    }}
-  >
-    {children}
-  </Heading>
-)
 
 const Day = ({ day, images }) => {
   moment.updateLocale("es", localization)
@@ -23,10 +12,28 @@ const Day = ({ day, images }) => {
   const monthTitle = date.format("dddd DD MMMM YYYY")
   return (
     <Box>
-      <DayTitle onClick={() => navigate(`/calendario${monthDate}`)}>
-        {monthTitle}
-      </DayTitle>
-
+      <Flex my={2}>
+        <Box>
+          <Link
+            to={`/calendario${monthDate}`}
+            sx={{
+              textDecoration: `none`,
+              color: "secondary",
+            }}
+          >
+            <Heading>{date.format("MMMM YYYY")}</Heading>
+          </Link>
+        </Box>
+        <Box sx={{ flex: 1 }}>
+          <Heading
+            sx={{
+              textAlign: "right",
+            }}
+          >
+            {date.format("dddd DD")}
+          </Heading>
+        </Box>
+      </Flex>
       {images.map((image, index) => (
         <Image
           my={2}
