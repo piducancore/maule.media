@@ -79,7 +79,7 @@ const MonthGrid = ({ children }) => {
 
 const MonthDay = ({ image, number, onClick }) => {
   const { GATSBY_CLOUDINARY_CLOUD_NAME } = process.env
-  const flags = "w_150,h_150,c_fill,e_grayscale"
+  const flags = "w_150,h_150,c_fill,e_grayscale,e_tint:50:red"
   const url = `https://res.cloudinary.com/${GATSBY_CLOUDINARY_CLOUD_NAME}/image/upload/${flags}/${image}.jpg`
   return (
     <Box
