@@ -32,14 +32,30 @@ const Layout = ({ location, children }) => {
           maxWidth: 960,
           padding: 3,
           paddingTop: 0,
+          display: "flex",
+          minHeight: "calc(100vh - 124px)",
+          flexDirection: "column",
         }}
       >
-        <main>{children}</main>
+        <main
+          sx={{
+            flex: 1,
+          }}
+        >
+          {children}
+        </main>
         <footer>
-          <Styled.p>
-            © {new Date().getFullYear()}, Built at
-            {` `}
-            <Link to="/">maule.media</Link>
+          <Styled.p sx={{ textAlign: "center" }}>
+            © {new Date().getFullYear()},{` `}
+            <Link
+              to="/"
+              sx={{
+                textDecoration: `none`,
+              }}
+            >
+              maule.media
+            </Link>
+            .
           </Styled.p>
         </footer>
       </div>
