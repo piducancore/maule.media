@@ -20,7 +20,7 @@ const Layout = ({ location, children }) => {
   `)
 
   return (
-    <Styled.root>
+    <Styled.root sx={{ backgroundColor: "background", color: "text" }}>
       <Header
         siteTitle={data.site.siteMetadata.title}
         isIndex={isIndex}
@@ -45,18 +45,18 @@ const Layout = ({ location, children }) => {
           {children}
         </main>
         <footer>
-          <Styled.p sx={{ textAlign: "center" }}>
-            © {new Date().getFullYear()},{` `}
+          <Styled.h5 sx={{ textAlign: "center" }}>
             <Link
               to="/"
               sx={{
                 textDecoration: `none`,
+                color: "secondary",
               }}
             >
               maule.media
             </Link>
-            .
-          </Styled.p>
+            , talca {new Date().getFullYear()}.
+          </Styled.h5>
         </footer>
       </div>
     </Styled.root>
