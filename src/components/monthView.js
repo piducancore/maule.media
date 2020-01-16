@@ -94,8 +94,15 @@ const MonthView = ({ month, images, single }) => {
         {single && (
           <Box>
             <IconButton
+              sx={{
+                opacity: monthDate.format("/YYYY/MM") == "/2019/10" ? 0 : 1,
+              }}
               aria-label="mes anterior"
-              onClick={() => navigate(`/calendario${prevMonthLink}`)}
+              onClick={
+                monthDate.format("/YYYY/MM") !== "/2019/10"
+                  ? () => navigate(`/calendario${prevMonthLink}`)
+                  : null
+              }
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +115,7 @@ const MonthView = ({ month, images, single }) => {
                   d="M5041,1180l8,8-8,8"
                   transform="translate(5050.061 1196.53) rotate(180)"
                   fill="none"
-                  stroke="#707070"
+                  stroke={"#707070"}
                   strokeWidth="1"
                 />
               </svg>
@@ -121,8 +128,15 @@ const MonthView = ({ month, images, single }) => {
         {single && (
           <Box>
             <IconButton
+              sx={{
+                opacity: monthDate.format("/YYYY/MM") == "/2020/01" ? 0 : 1,
+              }}
               aria-label="mes siguiente"
-              onClick={() => navigate(`/calendario${nextMonthLink}`)}
+              onClick={
+                monthDate.format("/YYYY/MM") !== "/2020/01"
+                  ? () => navigate(`/calendario${nextMonthLink}`)
+                  : null
+              }
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
