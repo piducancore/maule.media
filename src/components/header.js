@@ -24,7 +24,7 @@ const Header = ({ siteTitle, isIndex, location }) => {
               sx={{
                 margin: 0,
                 fontFamily: "heading",
-                fontSize: isIndex ? 6 : 3,
+                fontSize: isIndex ? 6 : [2, 2, 3],
                 // textAlign: isCalendar ? "center" : "left",
               }}
             >
@@ -32,6 +32,7 @@ const Header = ({ siteTitle, isIndex, location }) => {
                 to="/"
                 sx={{
                   textDecoration: `none`,
+                  color: "text",
                 }}
               >
                 {
@@ -48,7 +49,7 @@ const Header = ({ siteTitle, isIndex, location }) => {
               sx={{
                 margin: 0,
                 fontFamily: "heading",
-                fontSize: 3,
+                fontSize: [2, 2, 3],
                 textAlign: "right",
               }}
             >
@@ -56,6 +57,7 @@ const Header = ({ siteTitle, isIndex, location }) => {
                 to={isCalendar ? "/calendario" : "/"}
                 sx={{
                   textDecoration: `none`,
+                  color: "text",
                 }}
               >
                 {console.log(location)}
