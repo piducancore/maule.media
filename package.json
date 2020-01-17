@@ -26,6 +26,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
+    "react-intersection-observer": "^8.25.2",
     "theme-ui": "^0.2.49",
     "typeface-roboto": "^0.0.75"
   },
