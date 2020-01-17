@@ -15,7 +15,7 @@ const CalendarioPage = ({ location }) => (
       sociis euismod quisque montes iaculis vitae nisi eu arcu sagittis velit
       cursus, vivamus est tincidunt tortor in volutpat augue eget magnis primis{" "}
       <Link
-        to="/calendario/2019"
+        to="/calendario/2019/10"
         sx={{
           textDecoration: `none`,
           color: "secondary",
