@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { Box, Grid, Heading, Flex, IconButton } from "@theme-ui/components"
+import { Fragment } from "react"
 import { navigate } from "gatsby"
 import moment from "moment"
 import localization from "moment/locale/es"
@@ -89,8 +90,8 @@ const MonthView = ({ month, images, single }) => {
   }
 
   return (
-    <Box mb={4}>
-      <Flex>
+    <Fragment>
+      <Flex my={2}>
         {single && (
           <Box>
             <IconButton
@@ -157,7 +158,7 @@ const MonthView = ({ month, images, single }) => {
           </Box>
         )}
       </Flex>
-      <Grid gap={1} columns={[7, 7, 7]}>
+      <Grid my={2} gap={1} columns={[7, 7, 7]}>
         {dayNames.map(dayName => (
           <Heading
             key={dayName}
@@ -172,7 +173,7 @@ const MonthView = ({ month, images, single }) => {
         {blanks}
         {days}
       </Grid>
-    </Box>
+    </Fragment>
   )
 }
 
