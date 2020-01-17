@@ -2,18 +2,14 @@
 import { jsx } from "theme-ui"
 import { Fragment } from "react"
 import moment from "moment"
-import { Box, Flex, IconButton, Heading, Image } from "@theme-ui/components"
+import { Box, Flex, Heading, Image } from "@theme-ui/components"
 import { Link } from "gatsby"
 import localization from "moment/locale/es"
-import React, { useRef } from "react"
+// import { useRef } from "react"
 import { useInView } from "react-intersection-observer"
 
-const Component = () => {
-  return <div></div>
-}
-
 const Day = ({ day, images }) => {
-  const [ref, inView, entry] = useInView({
+  const [ref, inView] = useInView({
     /* Optional options */
     // threshold: 1,
     rootMargin: "-46px",
@@ -21,7 +17,6 @@ const Day = ({ day, images }) => {
   moment.updateLocale("es", localization)
   const date = moment(day, "/YYYY/MM/DD")
   const monthDate = date.format("/YYYY/MM")
-  const monthTitle = date.format("dddd DD MMMM YYYY")
   return (
     <Fragment>
       <Flex my={2} ref={ref}>

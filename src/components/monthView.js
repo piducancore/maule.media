@@ -96,7 +96,7 @@ const MonthView = ({ month, images, single }) => {
           <Box>
             <IconButton
               sx={{
-                opacity: monthDate.format("/YYYY/MM") == "/2019/10" ? 0 : 1,
+                opacity: monthDate.format("/YYYY/MM") === "/2019/10" ? 0 : 1,
               }}
               aria-label="mes anterior"
               onClick={
@@ -130,7 +130,7 @@ const MonthView = ({ month, images, single }) => {
           <Box>
             <IconButton
               sx={{
-                opacity: monthDate.format("/YYYY/MM") == "/2020/01" ? 0 : 1,
+                opacity: monthDate.format("/YYYY/MM") === "/2020/01" ? 0 : 1,
               }}
               aria-label="mes siguiente"
               onClick={
