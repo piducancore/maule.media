@@ -9,7 +9,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     query {
       allCloudinaryMedia(
-        sort: { order: ASC, fields: image_metadata___CreateDate } # filter: { image_metadata: { CreateDate: { regex: "/^(?!2014)/" } } }
+        sort: { order: ASC, fields: image_metadata___CreateDate }
+        filter: { image_metadata: { CreateDate: { regex: "/^(?!2014)/" } } }
       ) {
         totalCount
         nodes {
