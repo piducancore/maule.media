@@ -4,11 +4,13 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Hello from "../components/hello"
 
 const SecondPage = ({ location }) => (
   <Layout location={location.pathname}>
     <SEO title="Page two" />
     <Styled.h1>Hi from the second page</Styled.h1>
+    <Hello />
     <Styled.p>Welcome to page 2</Styled.p>
     <Styled.p>
       <Link to="/">Go back to the homepage</Link>
