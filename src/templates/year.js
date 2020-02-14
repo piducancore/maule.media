@@ -12,7 +12,7 @@ const Year = ({ path, data }) => {
   let months = []
   for (let i = 1; i < 13; i++) {
     const currentMonth = moment(
-      path.replace(/\/calendario\//g, "/"),
+      path.replace(/\/archivo\//g, "/"),
       "/YYYY/MM"
     ).add(i > 1 ? i - 1 : 0, "month")
     months.push(
@@ -25,9 +25,12 @@ const Year = ({ path, data }) => {
   }
   return (
     <Layout location={path}>
-      {// use this conditional to start 2019 from october.
+      {
+        // use this conditional to start 2019 from october.
         // to render every month use months array as is.
-        path === "/calendario/2019" ? months.slice(9) : months}
+        // path === "/archivo/2019" ? months.slice(9) : months
+        months
+      }
     </Layout>
   )
 }
@@ -37,16 +40,18 @@ export default Year
 export const query = graphql`
   query($year: String!) {
     allCloudinaryMedia(
-      sort: { order: ASC, fields: image_metadata___CreateDate }
-      filter: { image_metadata: { CreateDate: { regex: $year } } }
+      sort: { order: ASC, fields: context___custom___createDate }
+      filter: { context: { custom: { createDate: { regex: $year } } } }
     ) {
       totalCount
       nodes {
         public_id
         width
         height
-        image_metadata {
-          CreateDate
+        context {
+          custom {
+            createDate
+          }
         }
       }
     }

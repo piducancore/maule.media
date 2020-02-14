@@ -7,7 +7,7 @@ const Day = ({ path, data }) => {
   const { nodes } = data.allCloudinaryMedia
   return (
     <Layout location={path}>
-      <DayView day={path.replace(/\/calendario\//g, "/")} images={nodes} />
+      <DayView day={path.replace(/\/archivo\//g, "/")} images={nodes} />
     </Layout>
   )
 }
@@ -17,16 +17,18 @@ export default Day
 export const query = graphql`
   query($day: String!) {
     allCloudinaryMedia(
-      sort: { order: ASC, fields: image_metadata___CreateDate }
-      filter: { image_metadata: { CreateDate: { regex: $day } } }
+      sort: { order: ASC, fields: context___custom___createDate }
+      filter: { context: { custom: { createDate: { regex: $day } } } }
     ) {
       totalCount
       nodes {
         public_id
         width
         height
-        image_metadata {
-          CreateDate
+        context {
+          custom {
+            createDate
+          }
         }
       }
     }

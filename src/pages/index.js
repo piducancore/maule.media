@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 const IndexPage = ({ location }) => (
   <Layout location={location.pathname}>
     <SEO title="Home" />
-    <Link to="/calendario">/calendario</Link>
+    <Link to="/archivo">/archivo</Link>
   </Layout>
 )
 

@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
 const Header = ({ siteTitle, isIndex, location }) => {
-  const isCalendar = location.lastIndexOf("/calendario", 0) === 0
+  const isCalendar = location.lastIndexOf("/archivo", 0) === 0
   return (
     <Styled.div as="header">
       <div
@@ -54,14 +54,14 @@ const Header = ({ siteTitle, isIndex, location }) => {
               }}
             >
               <Link
-                to={isCalendar ? "/calendario" : "/"}
+                to={isCalendar ? "/archivo" : "/"}
                 sx={{
                   textDecoration: `none`,
                   color: "text",
                 }}
               >
                 {console.log(location)}
-                {isCalendar && "calendario visual"}
+                {isCalendar && "archivo fotográfico"}
               </Link>
             </Heading>
           </Box>

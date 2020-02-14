@@ -22,7 +22,7 @@ const Day = ({ day, images }) => {
       <Flex my={2} ref={ref}>
         <Box>
           <Link
-            to={`/calendario${monthDate}`}
+            to={`/archivo${monthDate}`}
             sx={{
               textDecoration: `none`,
               color: "secondary",
@@ -56,7 +56,7 @@ const Day = ({ day, images }) => {
         >
           <Box>
             <Link
-              to={`/calendario${monthDate}`}
+              to={`/archivo${monthDate}`}
               sx={{
                 textDecoration: `none`,
                 color: "secondary",
@@ -80,8 +80,8 @@ const Day = ({ day, images }) => {
         <Image
           my={2}
           key={image.public_id}
-          title={image.image_metadata.CreateDate}
-          alt={image.image_metadata.CreateDate}
+          title={image.context.custom.createDate}
+          alt={image.context.custom.createDate}
           src={`https://res.cloudinary.com/${process.env.GATSBY_CLOUDINARY_CLOUD_NAME}/image/upload/w_960/${image.public_id}.jpg`}
         />
       ))}

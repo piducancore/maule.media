@@ -5,9 +5,9 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const CalendarioPage = ({ location }) => (
+const ArchivoPage = ({ location }) => (
   <Layout location={location.pathname}>
-    <SEO title="calendario fotográfico" />
+    <SEO title="archivo fotográfico" />
     <Styled.p>
       Lorem ipsum dolor sit amet consectetur adipiscing elit venenatis
       facilisis, ultrices ad diam torquent scelerisque a lacinia suspendisse
@@ -15,7 +15,7 @@ const CalendarioPage = ({ location }) => (
       sociis euismod quisque montes iaculis vitae nisi eu arcu sagittis velit
       cursus, vivamus est tincidunt tortor in volutpat augue eget magnis primis{" "}
       <Link
-        to="/calendario/2019/10"
+        to="/archivo/2019/10"
         sx={{
           textDecoration: `none`,
           color: "secondary",
@@ -29,4 +29,4 @@ const CalendarioPage = ({ location }) => (
   </Layout>
 )
 
-export default CalendarioPage
+export default ArchivoPage

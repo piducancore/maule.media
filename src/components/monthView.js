@@ -67,7 +67,7 @@ const MonthView = ({ month, images, single }) => {
         images &&
         images.find(
           image =>
-            image.image_metadata.CreateDate.lastIndexOf(
+            image.context.custom.createDate.lastIndexOf(
               currentDay.format("YYYY:MM:DD"),
               0
             ) === 0
@@ -84,7 +84,7 @@ const MonthView = ({ month, images, single }) => {
         key={dayNumber}
         number={dayNumber}
         image={dayImage()}
-        onClick={dayImage() ? () => navigate(`/calendario${dayLink}`) : null}
+        onClick={dayImage() ? () => navigate(`/archivo${dayLink}`) : null}
       />
     )
   }
@@ -101,7 +101,7 @@ const MonthView = ({ month, images, single }) => {
               aria-label="mes anterior"
               onClick={
                 monthDate.format("/YYYY/MM") !== "/2019/10"
-                  ? () => navigate(`/calendario${prevMonthLink}`)
+                  ? () => navigate(`/archivo${prevMonthLink}`)
                   : null
               }
             >
@@ -135,7 +135,7 @@ const MonthView = ({ month, images, single }) => {
               aria-label="mes siguiente"
               onClick={
                 monthDate.format("/YYYY/MM") !== "/2020/01"
-                  ? () => navigate(`/calendario${nextMonthLink}`)
+                  ? () => navigate(`/archivo${nextMonthLink}`)
                   : null
               }
             >

@@ -31,14 +31,16 @@ module.exports = {
       },
     },
     {
-      resolve: `@piducancore/gatsby-source-cloudinary-metadata`,
+      resolve: `gatsby-source-cloudinary`,
       options: {
-        cloud_name: process.env.CLOUDINARY_CLOUD_NAME, // required
-        api_key: process.env.CLOUDINARY_API_KEY, // required
-        api_secret: process.env.CLOUDINARY_API_SECRET, // required
-        type: `upload`, // required
-        max_results: 500, // default: 10
-        prefix: `estallidoTalca/`, // optional
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        resourceType: `image`,
+        type: `upload`,
+        maxResults: 500,
+        prefix: `maule/`,
+        context: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
