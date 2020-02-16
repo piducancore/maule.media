@@ -17,7 +17,7 @@ const client = new ApolloClient({
       if (networkError) console.log(`[Network error]: ${networkError}`)
     }),
     new createUploadLink({
-      uri: "http://localhost:4000/graphql",
+      uri: `${process.env.SERVER_URL}/graphql`,
       credentials: "include",
       fetch,
     }),
