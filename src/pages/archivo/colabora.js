@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { Styled, jsx } from "theme-ui"
+import { Heading } from "@theme-ui/components"
 import { Link } from "gatsby"
 import { useQuery } from "@apollo/react-hooks"
 import gql from "graphql-tag"
@@ -15,19 +16,34 @@ const QUERY = gql`
 `
 
 const ColaboraPage = ({ location }) => {
-  const { data } = useQuery(QUERY)
+  const { data, loading, error } = useQuery(QUERY)
   return (
     <Layout location={location.pathname}>
       <SEO title="¿Te gustaría colaborar?" />
-      <Styled.h1>¿Te gustaría colaborar?</Styled.h1>
-      <Styled.p>Welcome to page 2</Styled.p>
-      {!data && (
-        <a href={`${process.env.GATSBY_SERVER_URL}/auth/logout`}>LOGEATE</a>
+      {loading ? (
+        "loading..."
+      ) : (
+        <div>
+          <Heading as="h1">¿Te gustaría colaborar?</Heading>
+          <Styled.p>Welcome to page 2</Styled.p>
+          {!data && (
+            <a href={`${process.env.GATSBY_SERVER_URL}/auth/google`}>
+              GOOGLE LOGIN
+            </a>
+          )}
+          {data && (
+            <div>
+              <Upload />
+              <a href={`${process.env.GATSBY_SERVER_URL}/auth/logout`}>
+                LOGOUT
+              </a>
+            </div>
+          )}
+          <Styled.p>
+            <Link to="/">Go back to the homepage</Link>
+          </Styled.p>
+        </div>
       )}
-      {data && <Upload />}
-      <Styled.p>
-        <Link to="/">Go back to the homepage</Link>
-      </Styled.p>
     </Layout>
   )
 }
