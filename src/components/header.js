@@ -60,7 +60,6 @@ const Header = ({ siteTitle, isIndex, location }) => {
                   color: "text",
                 }}
               >
-                {console.log(location)}
                 {isCalendar && "archivo fotográfico"}
               </Link>
             </Heading>
