@@ -5,13 +5,10 @@ import MonthView from "../components/monthView"
 
 const Month = ({ path, data }) => {
   const { nodes } = data.allCloudinaryMedia
+  const month = path.replace(/\/archivo\//g, "/")
   return (
     <Layout location={path}>
-      <MonthView
-        month={path.replace(/\/archivo\//g, "/")}
-        images={nodes}
-        single={true}
-      />
+      <MonthView month={month} images={nodes} single={true} />
     </Layout>
   )
 }
