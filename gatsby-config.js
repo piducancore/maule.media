@@ -6,7 +6,6 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-    `gatsby-theme-apollo`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -16,7 +15,6 @@ module.exports = {
       },
     },
     "gatsby-plugin-theme-ui",
-    `gatsby-theme-style-guide`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
