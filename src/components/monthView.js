@@ -47,10 +47,8 @@ const MonthView = ({ month, images, single }) => {
   const firstDay = parseInt(monthDate.startOf("month").format("d"))
   const daysInMonth = parseInt(monthDate.daysInMonth())
   const dayNames = locale.weekdaysMin
-  const nextMonth = dayjs(date, "MMMM YYYY").add(1, "month")
-  const nextMonthLink = nextMonth.format("/YYYY/MM")
-  const prevMonth = dayjs(date, "MMMM YYYY").subtract(1, "month")
-  const prevMonthLink = prevMonth.format("/YYYY/MM")
+  const nextMonthLink = monthDate.add(1, "month").format("/YYYY/MM")
+  const prevMonthLink = monthDate.subtract(1, "month").format("/YYYY/MM")
 
   let blanks = []
   for (let i = 1; i < (firstDay === 0 ? 7 : firstDay); i++) {
