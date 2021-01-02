@@ -4,4 +4,4 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-import "typeface-roboto"
+import "@fontsource/roboto" // Defaults to weight 400 with normal variant.
