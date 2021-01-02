@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { Fragment } from "react"
-import moment from "moment"
 import { Box, Flex, Heading, Image } from "@theme-ui/components"
 import { Link } from "gatsby"
-import localization from "moment/locale/es"
+import dayjs from "dayjs"
+// import locale from "dayjs/locale/es" // load on demand
 // import { useRef } from "react"
 import { useInView } from "react-intersection-observer"
+dayjs.locale("es") // use Spanish locale globally
 
 const Day = ({ day, images }) => {
   const [ref, inView] = useInView({
@@ -14,8 +15,7 @@ const Day = ({ day, images }) => {
     // threshold: 1,
     rootMargin: "-46px",
   })
-  moment.updateLocale("es", localization)
-  const date = moment(day, "/YYYY/MM/DD")
+  const date = dayjs(day, "/YYYY/MM/DD")
   const monthDate = date.format("/YYYY/MM")
   return (
     <Fragment>

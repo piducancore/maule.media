@@ -1,17 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import moment from "moment"
-import localization from "moment/locale/es"
+import dayjs from "dayjs"
 
 import MonthView from "../components/monthView"
 
 const Year = ({ path, data }) => {
-  moment.updateLocale("es", localization)
   const { nodes } = data.allCloudinaryMedia
   let months = []
   for (let i = 1; i < 13; i++) {
-    const currentMonth = moment(
+    const currentMonth = dayjs(
       path.replace(/\/archivo\//g, "/"),
       "/YYYY/MM"
     ).add(i > 1 ? i - 1 : 0, "month")

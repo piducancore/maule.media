@@ -3,8 +3,9 @@ import { jsx } from "theme-ui"
 import { Box, Grid, Heading, Flex, IconButton } from "@theme-ui/components"
 import { Fragment } from "react"
 import { navigate } from "gatsby"
-import moment from "moment"
-import localization from "moment/locale/es"
+import dayjs from "dayjs"
+import locale from "dayjs/locale/es" // load on demand
+dayjs.locale("es") // use Spanish locale globally
 
 const Day = ({ image, number, onClick }) => {
   const { GATSBY_CLOUDINARY_CLOUD_NAME } = process.env
@@ -41,15 +42,14 @@ const Day = ({ image, number, onClick }) => {
 }
 
 const MonthView = ({ month, images, single }) => {
-  moment.updateLocale("es", localization)
-  const monthDate = moment(month, "/YYYY/MM")
+  const monthDate = dayjs(month, "/YYYY/MM")
   const date = monthDate.format("MMMM YYYY")
   const firstDay = parseInt(monthDate.startOf("month").format("d"))
   const daysInMonth = parseInt(monthDate.daysInMonth())
-  const dayNames = moment.weekdaysShort(true)
-  const nextMonth = moment(date, "MMMM YYYY").add(1, "month")
+  const dayNames = locale.weekdaysMin
+  const nextMonth = dayjs(date, "MMMM YYYY").add(1, "month")
   const nextMonthLink = nextMonth.format("/YYYY/MM")
-  const prevMonth = moment(date, "MMMM YYYY").subtract(1, "month")
+  const prevMonth = dayjs(date, "MMMM YYYY").subtract(1, "month")
   const prevMonthLink = prevMonth.format("/YYYY/MM")
 
   let blanks = []
@@ -59,7 +59,7 @@ const MonthView = ({ month, images, single }) => {
 
   let days = []
   for (let i = 1; i <= daysInMonth; i++) {
-    const currentDay = moment(month, "/YYYY/MM").add(i > 1 ? i - 1 : 0, "day")
+    const currentDay = dayjs(month, "/YYYY/MM").add(i > 1 ? i - 1 : 0, "day")
     const dayNumber = currentDay.format("DD")
     const dayLink = currentDay.format("/YYYY/MM/DD")
     const dayImage = () => {
@@ -167,7 +167,7 @@ const MonthView = ({ month, images, single }) => {
             as="h3"
             sx={{ textAlign: "center" }}
           >
-            {dayName.slice(0, -1)}
+            {dayName}
           </Heading>
         ))}
         {blanks}
